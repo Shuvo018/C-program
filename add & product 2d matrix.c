@@ -30,7 +30,7 @@ int main()
     }
 
     addMatrix(a,b,r,c);
-
+    product(a,b,r,c);
     return 0;
 }
 void addMatrix(int a[10][10],int b[10][10],int r,int c)
@@ -50,6 +50,36 @@ void addMatrix(int a[10][10],int b[10][10],int r,int c)
         for(j=0; j<c; j++)
         {
             printf("%d ",add[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+void product(int a[10][10],int b[10][10],int r,int c)
+{
+    int add[10][10],mul[10][10];
+    int i,j,k;
+    for(i=0; i<r; i++)
+    {
+        for(j=0; j<c; j++)
+        {
+            mul[i][j]=0;
+            add[i][j]=0;
+            for(k=0; k<c; k++)
+            {
+                add[i][j] = a[i][k] * b[k][j];
+                mul[i][j] = mul[i][j] + add[i][j];
+            }
+
+        }
+
+    }
+    printf("product matrix\n");
+    for(i=0; i<r; i++)
+    {
+        for(j=0; j<c; j++)
+        {
+            printf("%d ",mul[i][j]);
         }
         printf("\n");
     }
